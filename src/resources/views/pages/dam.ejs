@@ -1,0 +1,26 @@
+<section class="wrapper">
+   <div class="products">
+      <ul>
+         <% products.forEach(function(data){ %>
+            <li class="main-product">
+               <div class="img-product">
+                  <img class="img-prd" src="<%= data.image %>" alt="" width="210" height="500">
+               </div>
+               <div class="content-product">
+                  <h3 class="content-product-h3">
+                     <%=data.ten_sp %>
+                  </h3>
+                  <div class="content-product-deltals">
+                     <div class="price">
+                        <span class="money">
+                           <%=data.gia%>$
+                        </span>
+                     </div>
+                     <button type="button" class="btn btn-cart">Thêm Vào Giỏ</button>
+                  </div>
+               </div>
+            </li>
+            <% }); %>
+      </ul>
+   </div>
+</section>

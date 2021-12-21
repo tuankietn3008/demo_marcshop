@@ -1,0 +1,138 @@
+<form action="/admin" method="POST">
+   <div class="update_prod">
+      <div class="title">
+         <h2>CẬP NHẬT SẢN PHẨM</h2>
+      </div>
+      <div class="row frmProducts">
+         <div class="content_input">
+            <div class="form-floating ip_pro">
+               <input type="text" class="form-control" id="ten_sp" name="ten_sp" placeholder="Tên sản phẩm">
+               <label for="floatingInput">Tên sản phẩm</label>
+            </div>
+            <div class="form-floating ip_pro">
+               <input type="text" class="form-control" id="gia" name="gia" placeholder="Giá sản phẩm">
+               <label for="floatingInput">Giá sản phẩm</label>
+            </div>
+            <div class="form-floating ip_pro">
+               <input type="text" class="form-control" id="mota" name="mota" placeholder="Mô tả">
+               <label for="floatingInput">Mô tả</label>
+            </div>
+
+
+            <select name="size" id="size" class="select_pro ip_pro">
+               <option>
+                  <-- Kích thước sản phẩm -->
+               </option>
+               <option value="S">S</option>
+               <option value="M">M</option>
+               <option value="L">L</option>
+               <option value="XL">XL</option>
+               <option value="XXL">XXL</option>
+            </select>
+            <select name="loai" id="loai" class="select_pro ip_pro">
+               <option value=" ">
+                  <-- Loại sản phẩm -->
+               </option>
+               <option value="Đầm">Đầm</option>
+               <option value="Váy">Váy</option>
+               <option value="Áo">Áo</option>
+               <option value="Quần">Quần</option>
+               <option value="Phụ kiện">Phụ kiện</option>
+            </select>
+            <div class="form-floating ip_pro">
+               <input type="text" class="form-control" id="image" name="image" placeholder="Mô tả">
+               <label for="floatingInput">Link hình ảnh</label>
+            </div>
+            <div id="showbf"></div>
+            <div class="button_save">
+               <button id="btn_luu" type="submit" class="btn btn-primary">Lưu</button>
+            </div>
+         </div>
+         <div class="content_table">
+            <div class="table-responsive scrollable vien">
+               <table class="table table-hover">
+                  <thead class="thead-light">
+                     <tr>
+                        <th scope="col">Tên Sản phẩm</th>
+                        <th scope="col">Size</th>
+                        <th scope="col">Giá</th>
+                        <th scope="col">Mô tả</th>
+                        <th scope="col">Ảnh</th>
+                        <th scope="col">Loại Sản phẩm</th>
+                        <th scope="col">Sửa, xóa</th>
+                     </tr>
+                  </thead>
+                  <% products.forEach(function(data){ %>
+                     <tbody>
+                        <tr>
+                           <th>
+                              <%= data.ten_sp %>
+                           </th>
+                           <td>
+                              <%= data.size %>
+                           </td>
+                           <td>
+                              <%= data.gia %>$
+                           </td>
+                           <td>
+                              <%= data.mota %>
+                           </td>
+                           <td>
+                              <img src="<%- data.image %>" alt="" style="width: 50px; height: 50px;">
+                           </td>
+                           <td>
+                              <%= data.loai %>
+                           </td>
+                           <td>
+                              <a href="/admin/cap-nhat/<%- data._id %>"><img src="/assets/image/edit.png" alt=""
+                                    style="margin-right: 10px;"></a>
+                              <a class="open_modal" href="" data-bs-toggle="modal" data-bs-target="#delete_pro"
+                                 data-bs-id="<%- data._id%>"><img src="/assets/image/delete.png" alt=""></a>
+                           </td>
+                        </tr>
+                     </tbody>
+                     <% }); %>
+               </table>
+            </div>
+         </div>
+
+      </div>
+
+   </div>
+</form>
+<!-- Modal -->
+<div class="modal fade" id="delete_pro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Xóa sản phẩm</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+            <p>Bạn có chắc chắn muốn xóa sản phẩm này không?</p>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button id="btn_del_pro" type="button" class="btn btn-danger">Xóa</button>
+         </div>
+      </div>
+   </div>
+</div>
+<script>
+   var proId;
+   var exampleModal = document.getElementById('delete_pro');
+   var deleteForm = document.forms['delete_pro_frm'];
+   var btnDel_pro = document.getElementById('btn_del_pro');
+
+   exampleModal.addEventListener('show.bs.modal', function (e) {
+      var button = e.relatedTarget
+      proId = button.getAttribute('data-bs-id');
+   })
+
+   btnDel_pro.onclick = function () {
+      deleteForm.action = '/admin/xoa/' + proId;
+      deleteForm.submit();
+   }
+</script>
+<!-- form delete -->
+<form name="delete_pro_frm" method="POST"></form>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Đăng nhập - MarcShop</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <link rel="icon" href="//theme.hstatic.net/1000197303/1000782757/14/logo.png?v=229">
+   <link rel="stylesheet" href="/assets/css/sign_in_up.css">
+</head>
+
+<body>
+   <div class="container">
+      <form name="form_dn" method="POST" action="/dang-nhap">
+         <h1>Sign in</h1>
+         <div class="form_control ">
+            <input id="username_dn" type="text" placeholder="UserName">
+            <small></small>
+            <span></span>
+         </div>
+
+         <div class="form_control ">
+            <input id="password_dn" type="password" placeholder="Password">
+            <small></small>
+            <span></span>
+         </div>
+
+         <div class="checkbox">
+            <input id="checkHienthi_dn" type="checkbox">
+            <label for="">Hiển thị mật khẩu</label>
+         </div>
+
+         <button type="button" id="submit_login" class="btn_submit">Đăng nhập</button>
+
+         <div class="signup_link">
+            You have a account? <a href="/dang-ki">Sign up</a>
+         </div>
+      </form>
+   </div>
+
+
+   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"></script>
+   <script src="/js/sign_in.js"></script>
+</body>
+
+</html>

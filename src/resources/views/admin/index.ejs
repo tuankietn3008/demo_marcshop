@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%-include('./block/head.ejs')%>
+
+   <body>
+      <div class="header">
+         <div class="menu">
+            <div class="ad_navigation">
+               <ul>
+                  <li>
+                     <i class="fas fa-home"></i>
+                     <a href="/admin">Trang chủ</a>
+                  </li>
+                  <li>
+                     <i class="fas fa-boxes"></i>
+                     <a href="/admin/san-pham">Sản phẩm</a>
+                  </li>
+                  <li>
+                     <i class="fas fa-sign-out-alt"></i>
+                     <a href="/dang-xuat">Đăng xuất</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="content">
+            <div class="admin_cardBx">
+               <div class="admin_card">
+                  <div>
+                     <div class="admin_number">
+                        <%-products.length%>
+                     </div>
+                     <div class="admin_cardName">Trong kho</div>
+                  </div>
+                  <div class="iconCardBx">
+                     <i class="fas fa-warehouse"></i>
+                  </div>
+               </div>
+               <div class="admin_card">
+                  <div>
+                     <div class="admin_number">111001</div>
+                     <div class="admin_cardName">Doanh thu</div>
+                  </div>
+                  <div class="iconCardBx">
+                     <i class="fas fa-coins"></i>
+                  </div>
+               </div>
+               <div id="user" class="admin_card">
+                  <div>
+                     <div class="admin_number">Account</div>
+                     <div class="admin_cardName"></div>
+                  </div>
+                  <div class="iconCardBx">
+                     <i class="fas fa-user-shield"></i>
+                  </div>
+               </div>
+            </div>
+            <div class="content_home">
+               <%-include('./page/'+ page + '.ejs' )%>
+            </div>
+         </div>
+
+      </div>
+
+
+      <!-- Footer -->
+      <%-include('./block/footer.ejs')%>
+   </body>
+
+</html>

@@ -1,0 +1,33 @@
+<form action="/admin/cap-nhat/<%-products._id%>" method="POST">
+   <div class="title">
+      <h2>CẬP NHẬT SẢN PHẨM</h2>
+   </div>
+   <div class="content_update">
+      <div class="form-floating mb-3">
+         <input type="text" class="form-control" id="floatingInput" placeholder="Tên sản phẩm" name="ten_sp"
+            value="<%-products.ten_sp%>">
+         <label for="floatingInput">Tên sản phẩm</label>
+      </div>
+      <div class="form-floating mb-3">
+         <input type="text" class="form-control" id="floatingInput" placeholder="Tên sản phẩm" name="gia" ,
+            value="<%-products.gia%>">
+         <label for="floatingInput">Giá sản phẩm</label>
+      </div>
+      <div class="form-floating mb-3">
+         <input type="text" class="form-control" id="floatingInput" placeholder="Tên sản phẩm" name="loai"
+            value="<%-products.loai%>">
+         <label for="floatingInput">Loại sản phẩm</label>
+      </div>
+      <div class="form-floating mb-3">
+         <input type="text" class="form-control" id="floatingInput" placeholder="Tên sản phẩm" name="image" ,
+            value="<%-products.image%>">
+         <label for="floatingInput">Link hình ảnh</label>
+      </div>
+      <div class="img_update">
+         <img src="<%-products.image%>" alt="">
+      </div>
+      <div class="button_save">
+         <button type="submit" class="btn btn-primary">Lưu</button>
+      </div>
+   </div>
+</form>
